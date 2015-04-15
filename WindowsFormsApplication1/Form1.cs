@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class ChatExample : Form
     {
         private static byte[] result = new byte[1024];
         private static byte[] client_result = new byte[1024];
@@ -25,24 +25,24 @@ namespace WindowsFormsApplication1
 
         delegate void SetTextCallback(string text);
 
-        public Form1()
+        public ChatExample()
         {
             InitializeComponent();
         }
 
         //连接服务器
-        private void button2_Click(object sender, EventArgs e)
+        private void client_connect_Click(object sender, EventArgs e)
         {
             IPAddress target_ip = IPAddress.Parse(remote.Text);
             clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
                 clientSocket.Connect(new IPEndPoint(target_ip, port));
-                label2.Text = "连接成功";
+                client_status.Text = "Connect success";
             }
             catch (Exception ex)
             {
-                label2.Text = "连接失败";
+                client_status.Text = "Failed: " + ex.Message;
                 return;
             }
 
@@ -70,19 +70,28 @@ namespace WindowsFormsApplication1
                 int receiveLength = client_socket.Receive(client_result);
                 if (receiveLength > 0)
                 {
-                    this.setChatContent("收到消息：" + Encoding.ASCII.GetString(client_result, 0, receiveLength));
+                    this.setChatContent("ReceiveMessage：" + Encoding.ASCII.GetString(client_result, 0, receiveLength));
                 }
             }
         }
 
         //启动监听
-        private void button3_Click(object sender, EventArgs e)
+        private void server_listen_Click(object sender, EventArgs e)
         {
             IPAddress server_ip = IPAddress.Parse(local.Text);
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            serverSocket.Bind(new IPEndPoint(server_ip, port));
-            serverSocket.Listen(10);
-            label1.Text = "start listen";
+            try
+            {
+                serverSocket.Bind(new IPEndPoint(server_ip, port));
+                serverSocket.Listen(10);
+                server_status.Text = "start listen";
+            }
+            catch (Exception ex)
+            {
+                server_status.Text = "Error:"+ex.Message;
+                return;
+            }
+            
 
             Thread server_thread = new Thread(ListenClientConnect);
             server_thread.IsBackground = true;
@@ -118,7 +127,7 @@ namespace WindowsFormsApplication1
         }
 
         //发送按钮
-        private void button1_Click(object sender, EventArgs e)
+        private void send_message_Click(object sender, EventArgs e)
         {
             clientSocket.Send(Encoding.ASCII.GetBytes(richTextBox1.Text));
             this.setChatContent("我说:" + richTextBox1.Text);

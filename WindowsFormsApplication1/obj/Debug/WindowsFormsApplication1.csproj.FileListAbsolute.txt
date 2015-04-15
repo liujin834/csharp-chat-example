@@ -7,3 +7,12 @@ c:\users\administrator\documents\visual studio 2013\Projects\WindowsFormsApplica
 c:\users\administrator\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 c:\users\administrator\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 c:\users\administrator\documents\visual studio 2013\Projects\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\dev\github\csharp-chat-example\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChatExample.resources
